@@ -19,6 +19,11 @@ type AppConfig struct {
 	DB_USERNAME   string
 	DB_PASSWORD   string
 
+	DB_MAX_IDLE_CONNECTION      uint8
+	DB_MAX_OPEN_CONNECTION      uint8
+	DB_MAX_LIFETIME_CONNECTION  uint8
+	DB_MAX_IDLE_TIME_CONNECTION uint8
+
 	JWT_SECRET string
 }
 

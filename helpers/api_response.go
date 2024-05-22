@@ -8,12 +8,15 @@ type DefaultResponse struct {
 }
 
 type ValidatrionError struct {
-	Key     string `json:"key"`
-	Tag     string `json:"tag"`
-	Message string `json:"message"`
+	Key     string      `json:"key"`
+	Tag     string      `json:"tag"`
+	Message interface{} `json:"message"`
 }
 
 func ApiResponse(ctx *fiber.Ctx, statusCode int, message string, data interface{}) error {
+	if data == nil {
+		data = []interface{}{}
+	}
 	return ctx.Status(statusCode).JSON(DefaultResponse{
 		Message: message,
 		Data:    data,
